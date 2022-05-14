@@ -42,6 +42,9 @@ clean:
 run:
 	./$(YEAR)/$(DAY)/$(TARGET) $(YEAR)/$(DAY)/input.txt
 
+test:
+	./$(YEAR)/$(DAY)/$(TARGET) $(YEAR)/$(DAY)/test_input.txt
+
 info:
 	@echo "[*] Src:  ${SRC}            "
 	@echo "[*] Obj:  ${OBJECTS}        "
