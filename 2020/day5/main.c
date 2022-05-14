@@ -101,10 +101,12 @@ _my_seat_id(file_handle_t *file)
     for (int i = 0;
          i <= (buffer.pos); i++) {
         if ((data[i+1] - data[i]) == 2) {
+            buffer_destroy(&buffer);
             return (data[i]+1);
         }
     }
 
+    buffer_destroy(&buffer);
     return (0);
 }
 
