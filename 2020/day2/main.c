@@ -96,8 +96,8 @@ _pass_is_valid_pt2(tokens_t *tokens)
 int
 main(int argc, char **argv)
 {
-    file_handle_t file;
     tokens_t tokens;
+    file_handle_t file = {0};
 
     int n_valid_part1 = 0;
     int n_valid_part2 = 0;

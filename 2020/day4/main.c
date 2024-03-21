@@ -240,7 +240,7 @@ int
 main(int argc, char **argv)
 {
     int n_valid;
-    file_handle_t file;
+    file_handle_t file = {0};
 
     if (argc != 2) {
         return (-1);

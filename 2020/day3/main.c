@@ -18,7 +18,7 @@
 static int
 _input_read(buffer_t *buffer, char *fname)
 {
-    file_handle_t file;
+    file_handle_t file = {0};
 
     file_open(&file, fname, "r");
 

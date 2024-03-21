@@ -18,10 +18,9 @@ static int
 parse_input(buffer_t *buffer, char *file_name)
 {
     int32_t data;
-    file_handle_t file;
+    file_handle_t file = {0};
 
     file_open(&file, file_name, "r");
-    file_getsize(&file);
 
     while (1) {
         if (file_eof(&file)) {

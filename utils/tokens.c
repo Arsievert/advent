@@ -47,9 +47,7 @@ _is_delimeter(char s, char *d)
 }
 
 int
-tokens_find(tokens_t *tokens,
-           char *input, char *delimeters,
-           uint16_t n_tokens)
+tokens_find(tokens_t *tokens, char *input, char *delimeters, uint16_t n_tokens)
 {
     int len;
     bool new_token;

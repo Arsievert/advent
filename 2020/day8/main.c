@@ -180,7 +180,7 @@ int
 main(int argc, char **argv)
 {
     int acc;
-    file_handle_t file;
+    file_handle_t file = {0};
 
     if (argc != 2) {
         return (-1);
