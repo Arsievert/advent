@@ -8,8 +8,8 @@
 YEAR    := 2020
 DAY     := day8
 
-CC      := gcc
-CFLAGS  := -Wall
+CC      := clang
+CFLAGS  := -MJ cc.json -Wall
 BUILD   := build
 OUT     := $(BUILD)/out
 OBJ     := $(BUILD)/obj
@@ -32,6 +32,7 @@ $(OBJ)/%.o: %.c
 $(OUT)/$(TARGET): $(OBJECTS)
 	@mkdir -p $(@D)
 	$(CC) $(CLFAGS) -o $(OUT)/$(TARGET) $^
+	sed -e '1s/^/[\n/' -e '$$s/,$$/\n]/' *.json > compile_commands.json
 
 .PHONY: all clean run info
 
