@@ -9,10 +9,11 @@ YEAR    := 2020
 DAY     := day8
 
 CC      := clang
-CFLAGS  := -MJ cc.json -Wall
+CFLAGS  := -Wall
 BUILD   := build
 OUT     := $(BUILD)/out
 OBJ     := $(BUILD)/obj
+JSON    := $(BUILD)/json
 TARGET  := $(DAY).out
 INCLUDE := -Iutils/
 
@@ -27,17 +28,20 @@ all: $(OUT)/$(TARGET)
 
 $(OBJ)/%.o: %.c
 	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+	@mkdir -p $(JSON)
+	$(CC) $(CFLAGS) $(INCLUDE) -MJ $(JSON)/$(@F).json -c $< -o $@
 
 $(OUT)/$(TARGET): $(OBJECTS)
 	@mkdir -p $(@D)
 	$(CC) $(CLFAGS) -o $(OUT)/$(TARGET) $^
-	sed -e '1s/^/[\n/' -e '$$s/,$$/\n]/' *.json > compile_commands.json
+	@cat $(JSON)/* >> temp.json
+	@sed -e '1s/^/[\n/' -e '$$s/,$$/\n]/' temp.json > compile_commands.json
+	@rm temp.json
 
 .PHONY: all clean run info
 
 clean:
-	-@rm -rvf $(BUILD)
+	-@rm -rvf $(BUILD) *.json .cache/
 	-@rm -rvf $(YEAR)/$(DAY)/$(DAY).out
 
 run:
