@@ -33,11 +33,15 @@ tokens_create(tokens_t *tokens, uint16_t n)
 static int
 _is_delimeter(char s, char *d)
 {
+    int len;
+
     if (!d) {
         return (0);
     }
 
-    for (int i = 0; i < strlen(d); i++) {
+    len = strlen(d);
+
+    for (int i = 0; i < len; i++) {
         if (d[i] == s) {
             return (1);
         }
