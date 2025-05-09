@@ -1,7 +1,7 @@
 /* buffer.c
  *
  * Author: Austin Sievert (arsievert1@gmail.com)
- * URL:    https://github.com/arsievert1/advent
+ * URL:    https://github.com/arsievert/advent
  *
  * License: MIT
  */
